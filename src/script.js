@@ -54,6 +54,9 @@ const $projects = document.getElementById("projects");
 const $homeScreen = document.getElementById("home-screen");
 const $about = document.getElementById("about");
 
+let currentSection = 0;
+const sections = [$homeScreen, $about, $projects];
+
 console.log($homeScreen);
 
 function generateProjectCardsHtml() {
@@ -96,3 +99,28 @@ function renderSite() {
 }
 
 renderSite();
+window.addEventListener("load", function () {
+   window.scrollTo(0, 0);
+});
+
+window.addEventListener(
+   "wheel",
+   (e) => {
+      if (e.deltaY < 0) {
+         if (currentSection >= 0) {
+            e.preventDefault();
+            currentSection = currentSection === 0 ? 0 : currentSection - 1;
+            sections[currentSection].scrollIntoView({ behavior: "smooth" });
+            console.log("UP", currentSection);
+         }
+      } else if (e.deltaY > 0) {
+         if (currentSection < sections.length) {
+            e.preventDefault();
+            currentSection = currentSection === 2 ? 2 : currentSection + 1;
+            sections[currentSection].scrollIntoView({ behavior: "smooth" });
+            console.log("DOWN", currentSection);
+         }
+      }
+   },
+   { passive: false }
+);
