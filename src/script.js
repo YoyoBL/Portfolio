@@ -53,6 +53,8 @@ const projects = [
 const $projects = document.getElementById("projects");
 const $homeScreen = document.getElementById("home-screen");
 const $about = document.getElementById("about");
+const $navLinks = document.querySelectorAll(".nav-link");
+// console.log($navItems);
 
 let currentSection = 0;
 const sections = [$homeScreen, $about, $projects];
@@ -66,7 +68,7 @@ function generateProjectCardsHtml() {
       html += `
         <div class="col-12 col-lg-4 center-all ">
                <div class="card h-100 " >
-                <a class="text-black text-decoration-none" href="${link}">
+                <a class="text-black text-decoration-none" href="${link}" target="_blank">
                     <img
                         src="./images/Sites_thumbnails/${title}.png"
                         class="card-img-top"
@@ -83,6 +85,7 @@ function generateProjectCardsHtml() {
                      <a
                         href="${gitHubLink}"
                         class="list-group-item list-group-item-action"
+                        target="_blank"
                         ><i class="bi bi-github"></i> Git Link</a
                      >
                      
@@ -99,28 +102,38 @@ function renderSite() {
 }
 
 renderSite();
-window.addEventListener("load", function () {
-   window.scrollTo(0, 0);
-});
+// window.addEventListener("load", function () {
+//    window.scrollTo(0, 0);
+// });
 
-window.addEventListener(
-   "wheel",
-   (e) => {
-      if (e.deltaY < 0) {
-         if (currentSection >= 0) {
-            e.preventDefault();
-            currentSection = currentSection === 0 ? 0 : currentSection - 1;
-            sections[currentSection].scrollIntoView({ behavior: "smooth" });
-            console.log("UP", currentSection);
-         }
-      } else if (e.deltaY > 0) {
-         if (currentSection < sections.length) {
-            e.preventDefault();
-            currentSection = currentSection === 2 ? 2 : currentSection + 1;
-            sections[currentSection].scrollIntoView({ behavior: "smooth" });
-            console.log("DOWN", currentSection);
-         }
+// window.addEventListener(
+//    "wheel",
+//    (e) => {
+//       if (e.deltaY < 0) {
+//          if (currentSection >= 0) {
+//             e.preventDefault();
+//             currentSection = currentSection === 0 ? 0 : currentSection - 1;
+//             sections[currentSection].scrollIntoView({ behavior: "smooth" });
+//             console.log("UP", currentSection);
+//          }
+//       } else if (e.deltaY > 0) {
+//          if (currentSection < sections.length) {
+//             e.preventDefault();
+//             currentSection = currentSection === 2 ? 2 : currentSection + 1;
+//             sections[currentSection].scrollIntoView({ behavior: "smooth" });
+//             console.log("DOWN", currentSection);
+//          }
+//       }
+//    },
+//    { passive: false }
+// );
+
+window.addEventListener("click", (e) => {
+   if (e.target.closest(".navbar-nav")) {
+      for (const navLink of $navLinks) {
+         navLink.classList.remove("active");
       }
-   },
-   { passive: false }
-);
+      //   debugger;
+      e.target.classList.add("active");
+   }
+});
