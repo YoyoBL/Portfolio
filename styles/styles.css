@@ -470,6 +470,8 @@
 }
 .about-me::before {
   content: "";
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -481,6 +483,8 @@
 }
 .about-me::after {
   content: "";
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: 100%;
   width: 100%;
   position: absolute;
