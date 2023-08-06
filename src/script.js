@@ -8,6 +8,13 @@ const projects = [
        making it simple to manage and organize your financial records. <br>`,
    },
    {
+      title: "Trivia",
+      link: "https://yoyobl.github.io/To_do_list",
+      gitHubLink: "https://github.com/YoyoBL/Trivia",
+      description: `Exciting webpage trivia game with multiple categories. <br>
+       Test your knowledge, earn points, and have fun while learning new facts!`,
+   },
+   {
       title: "Todo-Lists",
       link: "https://yoyobl.github.io/To_do_list",
       gitHubLink: "https://github.com/YoyoBL/To_do_list",
@@ -39,15 +46,6 @@ const projects = [
        personally written by me. <br>
         It provides all the necessary information to refresh your memory and covers every essential aspect in a concise format <br>`,
    },
-   {
-      title: "Colors Memory Game",
-      link: "https://yoyobl.github.io/Memory_Game_Cards",
-      gitHubLink: "https://github.com/YoyoBL/Memory_Game_Cards",
-      description: `Up for a challenge? <br>
-       Play this exciting color memory game. <br>
-        It starts off easy,
-         but beware—it won't stay that way for long. <br>`,
-   },
 ];
 
 const $projects = document.getElementById("projects");
@@ -67,7 +65,7 @@ function generateProjectCardsHtml() {
    for (let { title, link, gitHubLink, description } of projects) {
       html += `
         <div class="col-12 col-lg-4 center-all ">
-               <div class="card h-100 " >
+               <div class="card h-100 justify-content-between" >
                 <a class="text-black text-decoration-none" href="${link}" target="_blank">
                     <img
                         src="./images/Sites_thumbnails/${title}.png"
