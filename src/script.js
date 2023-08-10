@@ -9,7 +9,7 @@ const projects = [
    },
    {
       title: "Trivia",
-      link: "https://yoyobl.github.io/To_do_list",
+      link: "https://yoyobl.github.io/Trivia",
       gitHubLink: "https://github.com/YoyoBL/Trivia",
       description: `Exciting webpage trivia game with multiple categories. <br>
        Test your knowledge, earn points, and have fun while learning new facts!`,
